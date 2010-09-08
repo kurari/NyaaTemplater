@@ -1,0 +1,5 @@
+Templater
+
+require
+	store/store
+	object/object
