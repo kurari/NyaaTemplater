@@ -11,8 +11,11 @@ class NyaaTemplaterResourceFile extends NyaaTemplaterResource
 
 	function get( $path, $templater )
 	{
-		$tpldir = $this->dir;
-		$file   = $tpldir.'/'.$path;
+		if( $path{0} == '/' ) $file = $path;
+		else {
+			$tpldir = $this->dir;
+			$file   = $tpldir.'/'.$path;
+		}
 		return file_get_contents( $file );
 	}
 
