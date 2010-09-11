@@ -11,8 +11,8 @@ class NyaaTemplaterCompilerForeach extends NyaaTemplaterCompiler
 	{
 		$opt    = $templater->getOpt($opt);
 		$from   = $templater->compileVarLine($opt['from']);
-		$key    = $opt['key'];
-		$value  = $opt['value'];
+		$key    = isset($opt['key']) ? $opt['key']: 'k';
+		$value  = isset($opt['value']) ? $opt['value'] : 'v';
 		$ret   	= "";
 		$ret   .= '<?php'."\n";
 		$ret   .= '$from   = '.$from.';'."\n";
