@@ -124,20 +124,15 @@ class NyaaTemplater extends NyaaObject
 		}
 
 		$resHandler = $this->plugin['resource'][$type];
-
-		$status['TYPE'] = $type;
-		$status['PATH'] = $path;
-
+		$resHandler->init( $this );
 		if( false === $resHandler->hasCache($path,$this) )
 		{
-			$status['CACHED'] = "NO";
 			$text = $resHandler->get($path, $this);
 			$code = $this->compile($text);
 			$resHandler->writeCache($path, $code, $this);
 		}
 		else
 		{
-			$status['CACHED'] = "YES";
 			$code = $resHandler->getCache($path,$this);
 		}
 		return $code;

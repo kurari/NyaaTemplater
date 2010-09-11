@@ -8,24 +8,9 @@ class NyaaTemplaterResourceString extends NyaaTemplaterResource
 		return $path;
 	}
 
-	function hasCache( $path, $templater )
-	{
-		return false;
-	}
-
-	function getCache( $path, $templater)
-	{
-		return "";
-	}
-
-	function writeCache( $path, $data, $templater )
-	{
-		return "";
-	}
-
 	function getCacheName( $path, $templater )
 	{
-		return false;
+		return md5($path);
 	}
 }
 ?>
